@@ -1,6 +1,6 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# jQuery AJAX Post
+# jQuery AJAX Patch
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@
 
 Make HTTP requests using `curl` and AJAX for:
 
--   Creating a specific resource.
+-   Altering a specific resource.
 
 ## Preparation
 
@@ -33,21 +33,22 @@ We're now ready to make requests.
 
 ### Curl single book demonstration
 
-We'll use curl to add a book. Watch as I add a script to my `curl/post.sh` file
-and run it in my terminal.
+We'll use curl to alter a book. Watch as I alter a script in my `curl/patch.sh`
+file and run it in my terminal.
 
 ### Curl single book code along
 
-We'll use curl to add a book. Code along as I add a script to my `curl/post.sh`
+We'll use curl to alter a book. Code along as I alter a script to my `curl/patch.sh`
 file and run it in my terminal.
 
 ### Curl single book lab
 
-Now write your own curl script in `curl/post.sh`.  Add a few books.
+Now write your own curl script in `curl/patch.sh`.  Add a few books.
 
 ### AJAX single book demo and lab
 
-Watch as I change the code in `index.html` and alter the javascript.
+We will use the same markup we wrote in the `jquery-ajax-patch` lesson, if you
+do not have working code ask your neighbor to slack you theirs.
 
 We'll be going back and forth between watching me and doing it yourself.
 

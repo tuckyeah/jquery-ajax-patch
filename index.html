@@ -8,11 +8,15 @@
     </head>
     <body class="container-fluid">
       <form id="book-form">
-        <label>Book id:
-          <input type="text" name="book-id" value="">
+        <label>Book Title:
+          <input type="text" name="book[title]" value="">
         </label>
-        <input type="submit" name="submit" value="GET Book(s)">
+        <label>Book Author:
+          <input type="text" name="book[author]" value="">
+        </label>
+        <button type="submit">Submit</button>
       </form>
+      Book numb<input class="book-id" type="text" value="">
       <h1>Example</h1>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
