@@ -43,11 +43,11 @@ file and run it in my terminal.
 
 ### Curl single book lab
 
-Now write your own curl script in `curl/patch.sh`.  Add a few books.
+Now write your own curl script in `curl/patch.sh`.  Alter a few books.
 
 ### AJAX single book demo and lab
 
-We will use the same markup we wrote in the `jquery-ajax-patch` lesson, if you
+We will use the same markup we wrote in the `jquery-ajax-post` lesson, if you
 do not have working code ask your neighbor to slack you theirs.
 
 We'll be going back and forth between watching me and doing it yourself.
