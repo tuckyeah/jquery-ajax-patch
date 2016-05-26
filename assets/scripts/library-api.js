@@ -10,9 +10,12 @@ const index = function () {
   });
 };
 
-const show = function (bookId) {
+const show = function (form) {
+  let data = getFormFields(form);
+  let id = data.book.id;
+
   return $.ajax({
-    url: app.host + '/books/' + bookId,
+    url: app.host + '/books/' + id,
     method: 'GET',
   });
 };
@@ -25,10 +28,24 @@ const create = function (form) {
   });
 };
 
-const destroy = function (bookId) {
+const destroy = function (form) {
+  let data = getFormFields(form);
+  let id = data.book.id;
+
   return $.ajax({
-    url: app.host + '/books/' + bookId,
+    url: app.host + '/books/' + id,
     method: 'DELETE',
+  });
+};
+
+const update = function(form){
+  let data = getFormFields(form);
+  let id = data.book.id;
+
+  return $.ajax({
+    url: app.host + '/books/' + id,
+    method: 'PATCH',
+    data: data,
   });
 };
 
@@ -37,4 +54,5 @@ module.exports = {
   show,
   create,
   destroy,
+  update,
 };

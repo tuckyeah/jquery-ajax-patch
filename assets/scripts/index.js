@@ -10,14 +10,15 @@ const ui = require('./ui');
 // button is clicked
 const onGetBooks = function (event) {
   event.preventDefault();
-  let bookId = $('#book-id').val();
+  console.log("Event target in get books is " + event.target.toString());
+  let bookId = $(event.target).find('[name="book[id]"]').val();
 
   if (bookId.length === 0) {
     libraryApi.index()
       .done(ui.onSuccess)
       .fail(ui.onError);
   } else {
-    libraryApi.show(bookId)
+    libraryApi.show(event.target)
       .done(ui.onSuccess)
       .fail(ui.onError);
   }
@@ -32,9 +33,15 @@ const onCreateBook = function (event) {
 
 const onDeleteBook = function (event) {
   event.preventDefault();
-  let bookId = $('#book-delete-id').val();
-  libraryApi.destroy(bookId)
+  libraryApi.destroy(event.target)
     .done(ui.onDelete)
+    .fail(ui.onError);
+};
+
+const onUpdateBook = function(event){
+  event.preventDefault();
+  libraryApi.update(event.target)
+    .done(ui.onUpdate)
     .fail(ui.onError);
 };
 
@@ -43,4 +50,5 @@ $(() => {
   $('#book-request').on('submit', onGetBooks);
   $('#book-create').on('submit', onCreateBook);
   $('#book-delete').on('submit', onDeleteBook);
+  $('#book-update').on('submit', onUpdateBook);
 });
