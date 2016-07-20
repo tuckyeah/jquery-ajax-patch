@@ -38,21 +38,9 @@ const destroy = function (form) {
   });
 };
 
-const update = function(form){
-  let data = getFormFields(form);
-  let id = data.book.id;
-
-  return $.ajax({
-    url: app.host + '/books/' + id,
-    method: 'PATCH',
-    data: data,
-  });
-};
-
 module.exports = {
   index,
   show,
   create,
-  destroy,
-  update,
+  destroy
 };

@@ -21,13 +21,8 @@ const onDelete = function () {
   console.log('Book was successfully deleted.');
 };
 
-const onUpdate = function(){
-  console.log('Your book was successfully updated!');
-};
-
 module.exports = {
   onSuccess,
   onError,
-  onDelete,
-  onUpdate,
+  onDelete
 };

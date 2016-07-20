@@ -38,17 +38,8 @@ const onDeleteBook = function (event) {
     .fail(ui.onError);
 };
 
-const onUpdateBook = function(event){
-  event.preventDefault();
-  libraryApi.update(event.target)
-    .done(ui.onUpdate)
-    .fail(ui.onError);
-};
-
-
 module.exports = {
   onGetBooks,
   onCreateBook,
-  onDeleteBook,
-  onUpdateBook
+  onDeleteBook
 };
