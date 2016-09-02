@@ -1,7 +1,9 @@
 'use strict';
 
-const libraryApi = require('../library-api');
+const api = require('./api');
 const ui = require('./ui');
+
+const getFormFields = require('../../../lib/get-form-fields');
 
 // get in the habit of naming your handlers, it eases debugging.
 //
@@ -10,15 +12,14 @@ const ui = require('./ui');
 // button is clicked
 const onGetBooks = function (event) {
   event.preventDefault();
-  console.log("Event target in get books is " + event.target.toString());
   let bookId = $(event.target).find('[name="book[id]"]').val();
 
   if (bookId.length === 0) {
-    libraryApi.index()
+    api.index()
       .done(ui.onSuccess)
       .fail(ui.onError);
   } else {
-    libraryApi.show(event.target)
+    api.show(event.target)
       .done(ui.onSuccess)
       .fail(ui.onError);
   }
@@ -26,20 +27,36 @@ const onGetBooks = function (event) {
 
 const onCreateBook = function (event) {
   event.preventDefault();
-  libraryApi.create(event.target)
+  api.create(event.target)
     .done(ui.onSuccess)
     .fail(ui.onError);
 };
 
 const onDeleteBook = function (event) {
   event.preventDefault();
-  libraryApi.destroy(event.target)
+
+  // this passes the complete form DOM object
+  // to the api.destroy, and converts it in the destroy method
+  api.destroy(event.target)
     .done(ui.onDelete)
+    .fail(ui.onError);
+};
+
+const onUpdateBook = function (event) {
+  event.preventDefault();
+
+  // this is converting the event DOM object
+  // to a JS object using getFormFields
+  let data = getFormFields(event.target);
+
+  api.update(data)
+    .done(ui.onSuccess)
     .fail(ui.onError);
 };
 
 module.exports = {
   onGetBooks,
   onCreateBook,
-  onDeleteBook
+  onDeleteBook,
+  onUpdateBook
 };
